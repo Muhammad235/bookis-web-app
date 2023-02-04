@@ -32,7 +32,7 @@ print_r($_POST);
                        $_SESSION['userEmail'] = $row['email'];
 
                      
-                       header("location: ../entertainment.php");
+                       header("location: ../entertainment/romance.php");
 
                     }
                 }else{
@@ -68,3 +68,4 @@ function post_data($field){
 
 
 ?>
+<a href=""></a>

@@ -59,7 +59,7 @@
         </div>
        <?php
         break;
-    case 2:
+    case 3:
         ?>  
         <div class="profile-rating"> 
         <img src="images/Vector (1).svg" alt="" class="rating" />
