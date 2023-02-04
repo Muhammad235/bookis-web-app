@@ -21,7 +21,7 @@ if (isset($_SESSION['userEmail'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/styles.css" />
     <script defer src="../js/script.js"></script>
-    <title>Bookis</title>
+    <title>users</title>
   </head>
 
   <style>
@@ -48,7 +48,7 @@ if (isset($_SESSION['userEmail'])) {
       </nav>
       <div class="main hide" id="library">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -113,7 +113,7 @@ if (isset($_SESSION['userEmail'])) {
       </div>
       <div class="main hide active-nav" id="home">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -213,7 +213,7 @@ if (isset($_SESSION['userEmail'])) {
 
       <div class="main hide" id="profile">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
           <a href="../profilesetting.php">
             <img src="../images/Setting.svg" alt="" class="set" />
           </a>
@@ -224,7 +224,7 @@ if (isset($_SESSION['userEmail'])) {
           <?php
 
             $chkemail = $_SESSION['userEmail'];
-            $sql = "SELECT `avatar` FROM bookis WHERE `email` = '$chkemail' ";
+            $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
 
             $result = mysqli_query($conn, $sql);
  
@@ -281,10 +281,10 @@ if (isset($_SESSION['userEmail'])) {
 
           $user_book_id = $_SESSION['user_id'];
 
-            $sql = "SELECT created_books.book_name, created_books.book_author, bookis.fullname
+            $sql = "SELECT created_books.book_name, created_books.book_author, users.fullname
                   FROM created_books
-                  JOIN bookis ON created_books.user_id = bookis.id
-                  WHERE bookis.id = '$user_book_id' ";
+                  JOIN users ON created_books.user_id = users.id
+                  WHERE users.id = '$user_book_id' ";
 
                   $result = mysqli_query($conn, $sql);
 

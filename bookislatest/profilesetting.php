@@ -44,7 +44,7 @@ if (!$_SESSION['userEmail']) {
           </div>
         </div>
         <nav class="nav-bar">
-          <img src="images/Bookis 9.svg" alt="" class="logo" />
+          <img src="images/users 9.svg" alt="" class="logo" />
         </nav>
         <div class="top">
           <div class="profile-author">

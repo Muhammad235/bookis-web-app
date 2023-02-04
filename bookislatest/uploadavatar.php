@@ -14,7 +14,7 @@ if($_FILES["file"]["name"] != '')
  echo $location;
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
 
-$sql = "UPDATE bookis SET `avatar` ='$name' WHERE `email`= '$chkemail' ";
+$sql = "UPDATE users SET `avatar` ='$name' WHERE `email`= '$chkemail' ";
 
 mysqli_query($conn, $sql);
 

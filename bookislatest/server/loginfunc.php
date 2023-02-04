@@ -12,7 +12,7 @@ print_r($_POST);
     if (empty($fullname) || empty($password)) {
         $_SESSION['login'] = 'Please fill all input fields';
     }else{
-        $sql = "SELECT * FROM `bookis` WHERE `fullname`=?";
+        $sql = "SELECT * FROM `users` WHERE `fullname`=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
              mysqli_stmt_error($stmt);

@@ -19,7 +19,7 @@ require "../server/db.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/styles.css" />
     <script defer src="../js/script.js"></script>
-    <title>Bookis</title>
+    <title>users</title>
   </head>
   <body>
     <div class="condition">
@@ -39,7 +39,7 @@ require "../server/db.php";
       </nav>
       <div class="main hide" id="library">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -104,7 +104,7 @@ require "../server/db.php";
       </div>
       <div class="main hide active-nav" id="home">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -193,7 +193,7 @@ require "../server/db.php";
 
       <div class="main hide" id="profile">
         <nav class="nav-bar">
-          <img src="../images/Bookis 9.svg" alt="" class="logo" />
+          <img src="../images/users 9.svg" alt="" class="logo" />
           <a href="./profilesetting.html">
             <img src="../images/Setting.svg" alt="" class="set" />
           </a>

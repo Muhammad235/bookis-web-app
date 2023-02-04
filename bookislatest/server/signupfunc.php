@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           //check if user already exist
 
-          $sql = "SELECT * FROM bookis WHERE email=?";
+          $sql = "SELECT * FROM users WHERE email=?";
           $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                   mysqli_stmt_error($stmt);
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     //  echo '<h1>'.$email.' already exist'.'</h1>';
               }else{
                 $avatar = 0;
-                $sql = "INSERT INTO bookis (fullname, email, password, avatar) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO users (fullname, email, password, avatar) VALUES (?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($stmt, $sql);
 

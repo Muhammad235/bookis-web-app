@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
           //check if user already exist
 
-          $sql = "SELECT * FROM bookis WHERE email=?";
+          $sql = "SELECT * FROM users WHERE email=?";
           $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                   mysqli_stmt_error($stmt);
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     //$_SESSION['login'] = 'User trully exist';
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-                    $sql = "UPDATE `bookis` SET `password`=? WHERE email ='$email'";
+                    $sql = "UPDATE `users` SET `password`=? WHERE email ='$email'";
                     
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {

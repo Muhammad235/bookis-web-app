@@ -1,7 +1,7 @@
 <?php
     
     $chkemail = $_SESSION['userEmail'];
-    $sql = "SELECT `rating` FROM bookis WHERE `email` = '$chkemail' ";
+    $sql = "SELECT `rating` FROM users WHERE `email` = '$chkemail' ";
   
     $result = mysqli_query($conn, $sql);
   

@@ -2,7 +2,7 @@
   
 
   $chkemail = $_SESSION['userEmail'];
-  $sql = "SELECT `avatar` FROM bookis WHERE `email` = '$chkemail' ";
+  $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
 
   $result = mysqli_query($conn, $sql);
 
