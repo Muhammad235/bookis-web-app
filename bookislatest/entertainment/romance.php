@@ -25,10 +25,10 @@ if (isset($_SESSION['userEmail'])) {
   </head>
 
   <style>
-      /* .books{
+      .books{
     display: grid;
     grid-template-columns: 1fr 1fr;
-  } */
+  }
   </style>
   <body>
     <div class="condition">
@@ -48,7 +48,7 @@ if (isset($_SESSION['userEmail'])) {
       </nav>
       <div class="main hide" id="library">
         <nav class="nav-bar">
-          <img src="../images/users 9.svg" alt="" class="logo" />
+          <img src="../images/logo.png" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -113,7 +113,7 @@ if (isset($_SESSION['userEmail'])) {
       </div>
       <div class="main hide active-nav" id="home">
         <nav class="nav-bar">
-          <img src="../images/users 9.svg" alt="" class="logo" />
+      <img src="../images/logo.png" alt="" class="logo" />
         </nav>
         <div class="topp">
           <input type="text" placeholder="Search" class="search-category" />
@@ -148,35 +148,6 @@ if (isset($_SESSION['userEmail'])) {
 
         <div class="books">
 
-        <?php
-
-        $sql = "SELECT interest_list.id, interest_list.book_title
-        FROM interest_list
-        JOIN interest ON interest_list.interest_id = interest.id
-        WHERE interest.id = 1" ;
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result) {
-            while ($rows = mysqli_fetch_assoc($result)) {
-
-              echo '
-          
-                <a href="thriller.php?='.$rows['id'].'">
-                <div>
-                  <div class="book-img">
-                    <img src="../images/Rectangle 9.png" alt="" class="book" />
-                  </div>
-                  <p>'.$rows['book_title'].'</p>
-                </div>
-                </a>
-            
-              ';
-                
-            }
-
-          }
-      ?>
 
 
 </div>
@@ -213,38 +184,42 @@ if (isset($_SESSION['userEmail'])) {
 
       <div class="main hide" id="profile">
         <nav class="nav-bar">
-          <img src="../images/users 9.svg" alt="" class="logo" />
+          <img src="../images/logo.png" alt="" class="logo" />
           <a href="../profilesetting.php">
             <img src="../images/Setting.svg" alt="" class="set" />
           </a>
         </nav>
         <div class="top">
           <div class="profile-author">
-         
+
+          <!-- <div><p>aaaaaaaaaaaaaaaa</p></div> -->
+
           <?php
+  
+                $chkemail = $_SESSION['userEmail'];
+                $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
 
-            $chkemail = $_SESSION['userEmail'];
-            $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
+                $result = mysqli_query($conn, $sql);
 
-            $result = mysqli_query($conn, $sql);
- 
-            if($result){
+                
+                if($result){
 
-              while($row = mysqli_fetch_assoc($result)){
-                $avatar = $row['avatar'];
-              }
-            }
+                  while($row = mysqli_fetch_assoc($result)){
+                    $avatar = $row['avatar'];
+                  }
+                }
 
-            if ($avatar == 0) {
-                ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image" /><?Php
+                if ($avatar == 0) {
+                    ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image" /><?Php
 
-            }else {
-              ?>    <img src="../uploaded_profiles/<?= $avatar ?>" alt="uploaded_profiles/<?= $avatar ?>" class="p-image" />   <?php
-              
-            }
+                }else {
+                  ?> <img src="../uploaded_profiles/<?= $avatar ?>" alt="" class="p-image" /><?Php
+                  
+                }
 
-          ?>
-
+            ?>
+         
+         
 
             <h4><?= $_SESSION['fullname'];?></h4>
             <p><?= $_SESSION['userEmail'];?></p>
@@ -283,7 +258,7 @@ if (isset($_SESSION['userEmail'])) {
 
             $sql = "SELECT created_books.book_name, created_books.book_author, users.fullname
                   FROM created_books
-                  JOIN users ON created_books.user_id = users.id
+                  JOIN users ON created_books.users_id = users.id
                   WHERE users.id = '$user_book_id' ";
 
                   $result = mysqli_query($conn, $sql);

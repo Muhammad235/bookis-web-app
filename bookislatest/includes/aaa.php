@@ -1,4 +1,71 @@
+from romace 
+
+
+
 <?php
+
+$sql = "SELECT created_books.book_name
+FROM created_books
+JOIN interest_list ON created_books.users_id = interest_list.id
+WHERE =interest_list.id = 1";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    while ($rows = mysqli_fetch_assoc($result)) {
+      
+        echo '             
+        <div class="books romance">
+
+            <div class="">
+              <div class="book-img politics">
+                <img src="images/Rectangle 9.png" alt="" class="book" />
+              </div>
+              <p>'.$rows['book_name'].'</p>
+            </div> 
+
+        </div>
+        ';
+
+    }
+  }
+
+
+
+?>
+
+
+
+<?php
+
+            $chkemail = $_SESSION['userEmail'];
+            $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
+
+            $result = mysqli_query($conn, $sql);
+ 
+            if($result){
+
+              while($row = mysqli_fetch_assoc($result)){
+                $avatar = $row['avatar'];
+              }
+            }
+
+            if ($avatar == 0) {
+                ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image" /><?Php
+
+            }else {
+              ?>    <img src="../uploaded_profiles/<?= $avatar ?>" alt="uploaded_profiles/<?= $avatar ?>" class="p-image" />   <?php
+              
+            }
+
+          ?>
+
+
+
+
+
+<?php
+
 
 
 
