@@ -148,6 +148,40 @@ if (isset($_SESSION['userEmail'])) {
 
         <div class="books">
 
+        
+
+<?php
+
+$sql = "SELECT created_books.book_name
+FROM created_books
+JOIN interest_list ON created_books.interest_list_id = interest_list.id
+WHERE = interest_list.id = 2";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    while ($rows = mysqli_fetch_assoc($result)) {
+      
+        echo '             
+        <div class="books romance">
+
+            <div class="">
+              <div class="book-img politics">
+                <img src="images/Rectangle 9.png" alt="" class="book" />
+              </div>
+              <p>'.$rows['book_name'].'</p>
+            </div> 
+
+        </div>
+        ';
+
+    }
+  }
+
+
+
+?>
+
 
 
 </div>
