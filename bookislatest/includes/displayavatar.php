@@ -15,10 +15,10 @@
   }
 
   if ($avatar == 0) {
-      ?> <img src="uploaded_profiles/profile.png" alt="" class="p-image" /><?Php
+      ?> <img src="uploaded_profiles/profile.png" alt="" class="p-image" style="border-radius: 50%";  /><?Php
 
   }else {
-    ?>    <img src="uploaded_profiles/<?= $avatar ?>" alt="uploaded_profiles/<?= $avatar ?>" class="p-image" />   <?php
+    ?>    <img src="uploaded_profiles/<?= $avatar ?>" alt="uploaded_profiles/<?= $avatar ?>" class="p-image" style="border-radius: 50%"; />   <?php
     
   }
 

@@ -218,33 +218,7 @@ if (isset($_SESSION['userEmail'])) {
         <div class="top">
           <div class="profile-author">
 
-
-          <?php
-  
-                $chkemail = $_SESSION['userEmail'];
-                $sql = "SELECT `avatar` FROM users WHERE `email` = '$chkemail' ";
-
-                $result = mysqli_query($conn, $sql);
-
-                
-                if($result){
-
-                  while($row = mysqli_fetch_assoc($result)){
-                    $avatar = $row['avatar'];
-                  }
-                }
-
-                if ($avatar == 0) {
-                    ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image avatar" /><?Php
-
-                }else {
-                  ?> <img src="../uploaded_profiles/<?= $avatar ?>" alt="" class="p-image avatar" /><?Php
-                  
-                }
-
-            ?>
-         
-         
+          <?php require "displayavatar.php";  ?>
 
             <h4><?= $_SESSION['fullname'];?></h4>
             <p><?= $_SESSION['userEmail'];?></p>
