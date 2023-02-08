@@ -149,7 +149,7 @@ if (isset($_SESSION['userEmail'])) {
         <div class="books">
 <?php
 
-              $sql = "SELECT created_books.book_name
+              $sql = "SELECT created_books.id, created_books.book_name
               FROM created_books
               JOIN interest_list ON created_books.interest_list_id = interest_list.id
               WHERE interest_list.id = 1";
@@ -158,17 +158,19 @@ if (isset($_SESSION['userEmail'])) {
 
               if ($result) {
                   while ($rows = mysqli_fetch_assoc($result)) {
+
+                    $book_id = $rows['id'];
                     
                       echo '             
                       <div class="books romance">
-
+                      <a href="aboutbook.php?book_id='.$book_id.'">
                           <div class="">
                             <div class="book-img politics">
                               <img src="../book_cover/Rectangle 9.png" alt="" class="book" />
                             </div>
                             <p>'.$rows['book_name'].'</p>
                           </div> 
-
+                      </a>
                       </div>
                       ';
 
@@ -178,6 +180,8 @@ if (isset($_SESSION['userEmail'])) {
 ?>
 
 </div>
+
+
 
         <div class="books" style="display: none;">
           <div>
@@ -255,7 +259,7 @@ if (isset($_SESSION['userEmail'])) {
 
           $user_book_id = $_SESSION['user_id'];
 
-            $sql = "SELECT created_books.book_name, created_books.book_author, users.fullname
+            $sql = "SELECT created_books.id, created_books.book_name, created_books.book_author, users.fullname
                   FROM created_books
                   JOIN users ON created_books.users_id = users.id
                   WHERE users.id = '$user_book_id' ";
@@ -264,13 +268,16 @@ if (isset($_SESSION['userEmail'])) {
 
                   if ($result) {
                     while ($rows = mysqli_fetch_assoc($result)) {
-                      // $book_name = $rows['book_name'];
-                      // $book_author = $rows['book_author'];
+
+                      $book_id = $rows['id'];
+              
                       echo ' 
                           <div>
+                          <a href="aboutbook.php?book_id='.$book_id.'">
                           <div class="book-img">
                             <img src="../book_cover/Rectangle 9.png" alt="" class="book" />
                           </div>
+                          </a>
                           <p>'.$rows['book_name'].'</p>
                           </div>     
                       
@@ -287,3 +294,4 @@ if (isset($_SESSION['userEmail'])) {
     </div>
   </body>
 </html>
+
