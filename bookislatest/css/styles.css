@@ -601,8 +601,8 @@ body {
     margin-top: 0;
   }
   .p-image {
-    width: 90px;
     height: 90px;
+    border-radius: 50%
   }
   .profile-rating {
     display: flex;
@@ -851,5 +851,11 @@ body {
   .book-library {
     margin-top: 70px;
     margin-bottom: 100px;
+  }
+
+  .avatar{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
   }
 }

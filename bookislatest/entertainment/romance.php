@@ -147,45 +147,37 @@ if (isset($_SESSION['userEmail'])) {
         </div>
 
         <div class="books">
-
-        
-
 <?php
 
-$sql = "SELECT created_books.book_name
-FROM created_books
-JOIN interest_list ON created_books.interest_list_id = interest_list.id
-WHERE = interest_list.id = 2";
+              $sql = "SELECT created_books.book_name
+              FROM created_books
+              JOIN interest_list ON created_books.interest_list_id = interest_list.id
+              WHERE interest_list.id = 1";
 
-$result = mysqli_query($conn, $sql);
+              $result = mysqli_query($conn, $sql);
 
-if ($result) {
-    while ($rows = mysqli_fetch_assoc($result)) {
-      
-        echo '             
-        <div class="books romance">
+              if ($result) {
+                  while ($rows = mysqli_fetch_assoc($result)) {
+                    
+                      echo '             
+                      <div class="books romance">
 
-            <div class="">
-              <div class="book-img politics">
-                <img src="images/Rectangle 9.png" alt="" class="book" />
-              </div>
-              <p>'.$rows['book_name'].'</p>
-            </div> 
+                          <div class="">
+                            <div class="book-img politics">
+                              <img src="../book_cover/Rectangle 9.png" alt="" class="book" />
+                            </div>
+                            <p>'.$rows['book_name'].'</p>
+                          </div> 
 
-        </div>
-        ';
+                      </div>
+                      ';
 
-    }
-  }
-
-
+                  }
+              }
 
 ?>
 
-
-
 </div>
-      
 
         <div class="books" style="display: none;">
           <div>
@@ -226,7 +218,6 @@ if ($result) {
         <div class="top">
           <div class="profile-author">
 
-          <!-- <div><p>aaaaaaaaaaaaaaaa</p></div> -->
 
           <?php
   
@@ -244,10 +235,10 @@ if ($result) {
                 }
 
                 if ($avatar == 0) {
-                    ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image" /><?Php
+                    ?> <img src="../uploaded_profiles/profile.png" alt="" class="p-image avatar" /><?Php
 
                 }else {
-                  ?> <img src="../uploaded_profiles/<?= $avatar ?>" alt="" class="p-image" /><?Php
+                  ?> <img src="../uploaded_profiles/<?= $avatar ?>" alt="" class="p-image avatar" /><?Php
                   
                 }
 
@@ -315,9 +306,6 @@ if ($result) {
 
       
         ?>
-
-
-
 
           <div>
         </div>
