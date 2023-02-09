@@ -67,11 +67,14 @@ session_start();
 
                 $result = mysqli_query($conn, $sql);
 
+                
+
                // echo $book_author;
 
-                // if ($result) {
-                // while ($rows = mysqli_fetch_assoc($result)) {
+                if ($result) {
+                while ($rows = mysqli_fetch_row($result)) {
 
+                    echo $row[0];
                     // $book_author = $rows['book_author'];
                     // $book_name = $rows['book_name'];
                     // $about_book = $rows['about_book'];
@@ -99,8 +102,8 @@ session_start();
                         <a href="" class="read-now">Read Now</a>
                 ';
                     
-                // }
-                // }
+                }
+                }
 
 ?>
 
