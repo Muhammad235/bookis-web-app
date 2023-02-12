@@ -1,6 +1,5 @@
 <?php
 
-use FontLib\Table\Type\head;
 
 require "../server/db.php";
 session_start();
@@ -50,7 +49,6 @@ session_start();
 
         $result = mysqli_query($conn, $sql);
 
-                $result = mysqli_query($conn, $sql);
                 
 
                // echo $book_author;
@@ -64,46 +62,46 @@ session_start();
                     $book_name = $rows['book_name'];
                     $about_book = $rows['about_book'];
 
-                    echo ' 
+                //     echo ' 
 
 
-                    <div class="top-half">
-                    <div class="save">
-                        <img src="images/save.png" alt="" class="save-icon">
-                    </div>
-                    <div class="book-cover-section">
-                        <img src="../images/coverbook1.png" alt="" class="view-book">
+                //     <div class="top-half">
+                //     <div class="save">
+                //         <img src="images/save.png" alt="" class="save-icon">
+                //     </div>
+                //     <div class="book-cover-section">
+                //         <img src="../images/coverbook1.png" alt="" class="view-book">
             
-                        <h2 class="view-book-title">'.$book_name.'</h2>
+                //         <h2 class="view-book-title">'.$book_name.'</h2>
               
-                    </div>
-                </div>
-                <div class="bottom-half">
-                    <button class="interest-list view-category">Romance</button>
-                    <div class="about-content">
+                //     </div>
+                // </div>
+                // <div class="bottom-half">
+                //     <button class="interest-list view-category">Romance</button>
+                //     <div class="about-content">
                     
 
-                            <div class="img-name">
-                            <img src="../images/Ellipse 18.png" alt="">
-                            <div class="name-mail">
-                                <h2 class="name">'.$book_author.'</h2> 
-                                <p class="publisher-email">adelekeyahaya05@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="star-rating">
-                            <button><i class="fa-solid fa-star"></i></button>
-                            <button><i class="fa-solid fa-star"></i></button>
-                            <button><i class="fa-solid fa-star"></i></button>
-                            <button><i class="fa-solid fa-star"></i></button>
-                            <button><i class="fa-solid fa-star"></i></button>
-                        </div>
-                        <h2 style="margin-bottom: 10px;">About</h2>
-                        <p class="description">'.
-                             $about_book
-                        .'</p>.
-                        <a href="download.php?file=dummy.pdf" class="download-btn">Download </a>
-                        <a href="" class="read-now">Read Now</a>
-                ';
+                //             <div class="img-name">
+                //             <img src="../images/Ellipse 18.png" alt="">
+                //             <div class="name-mail">
+                //                 <h2 class="name">'.$book_author.'</h2> 
+                //                 <p class="publisher-email">adelekeyahaya05@gmail.com</p>
+                //             </div>
+                //         </div>
+                //         <div class="star-rating">
+                //             <button><i class="fa-solid fa-star"></i></button>
+                //             <button><i class="fa-solid fa-star"></i></button>
+                //             <button><i class="fa-solid fa-star"></i></button>
+                //             <button><i class="fa-solid fa-star"></i></button>
+                //             <button><i class="fa-solid fa-star"></i></button>
+                //         </div>
+                //         <h2 style="margin-bottom: 10px;">About</h2>
+                //         <p class="description">'.
+                //              $about_book
+                //         .'</p>.
+                //         <a href="download.php?file=dummy.pdf" class="download-btn">Download </a>
+                //         <a href="" class="read-now">Read Now</a>
+                // ';
                     
                 }
                 }
@@ -115,13 +113,49 @@ session_start();
 
 ?>
 
+ 
+        <div class="top-half">
+                    <div class="save">
+                        <img src="images/save.png" alt="" class="save-icon">
+                    </div>
+                    <div class="book-cover-section">
+                        <img src="../images/coverbook1.png" alt="" class="view-book">
+            
+                        <h2 class="view-book-title"><?= $book_name?></h2>
+              
+                    </div>
+                </div>
+                <div class="bottom-half">
+                    <button class="interest-list view-category">Romance</button>
+                    <div class="about-content">
+                    
+                            <div class="img-name">
+                            <img src="../images/Ellipse 18.png" alt="">
+                            <div class="name-mail">
+                                <h2 class="name"><? $book_author?></h2> 
+                                <p class="publisher-email"> ade@gmail </p>
+                            </div>
+                        </div>
 
+                        <div class="star-rating">
+                            <button><i class="fa-solid fa-star"></i></button>
+                            <button><i class="fa-solid fa-star"></i></button>
+                            <button><i class="fa-solid fa-star"></i></button>
+                            <button><i class="fa-solid fa-star"></i></button>
+                            <button><i class="fa-solid fa-star"></i></button>
+                        </div>
+                        <h2 style="margin-bottom: 10px;">About</h2>
+                        <p class="description">
+                            <?= $about_book ?>
+                        </p>.
+                        <a href="download.php?file=dummy.pdf" class="download-btn">Download </a>
+                        <a href="view.php?book_to_read=dummy.pdf" class="read-now">Read Now</a>
 
                 </div>
             </div>
         </div>
-  
-    </section>
+
+
     <script src="js/app.js"></script>
 </body>
 </html>
