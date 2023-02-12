@@ -149,7 +149,7 @@ if (isset($_SESSION['userEmail'])) {
         <div class="books">
 <?php
 
-              $sql = "SELECT created_books.id, created_books.book_name
+              $sql = "SELECT *
               FROM created_books
               JOIN interest_list ON created_books.interest_list_id = interest_list.id
               WHERE interest_list.id = 1";

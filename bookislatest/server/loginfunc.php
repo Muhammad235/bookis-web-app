@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fullname = post_data('fullname');
     $password = post_data('password');
     $checked = post_data('checked');
+    
 print_r($_POST);
 
     if (empty($fullname) || empty($password)) {

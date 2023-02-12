@@ -1,5 +1,6 @@
 <?php
 
+use FontLib\Table\Type\head;
 
 require "../server/db.php";
 session_start();
@@ -35,55 +36,57 @@ session_start();
     </div>
     <section class="app" id="app" style="background-color: #FFE6C0;">
         <div class="container-view" style="display: flex; flex-direction: column;">
-   
 
-            <div class="top-half">
-                <div class="save">
-                    <img src="images/save.png" alt="" class="save-icon">
-                </div>
-                <div class="book-cover-section">
-                    <img src="../images/coverbook1.png" alt="" class="view-book">
-        
-                    <h2 class="view-book-title">All my love x</h2>
-          
-                </div>
-            </div>
-            <div class="bottom-half">
-                <button class="interest-list view-category">Romance</button>
-                <div class="about-content">
 
 <?php
 
         if(isset($_GET['book_id'])){
             $book_id = $_GET['book_id'];
 
-            echo $book_id;
-        }
+        //    echo $book_id;
 
-            $sql = "SELECT created_books.id, created_books.book_name, created_books.book_author, created_books.about_book, users.fullname
-                FROM created_books
-                JOIN users ON created_books.users_id = users.id
-                WHERE users.id = '$book_id' ";
+            
+        $sql = "SELECT * FROM created_books WHERE id = 1";
+
+        $result = mysqli_query($conn, $sql);
 
                 $result = mysqli_query($conn, $sql);
-
                 
 
                // echo $book_author;
 
                 if ($result) {
-                while ($rows = mysqli_fetch_row($result)) {
+                while ($rows = mysqli_fetch_assoc($result)) {
 
-                    echo $row[0];
-                    // $book_author = $rows['book_author'];
-                    // $book_name = $rows['book_name'];
-                    // $about_book = $rows['about_book'];
 
-                    echo '                             
+                  
+                    $book_author = $rows['book_author'];
+                    $book_name = $rows['book_name'];
+                    $about_book = $rows['about_book'];
+
+                    echo ' 
+
+
+                    <div class="top-half">
+                    <div class="save">
+                        <img src="images/save.png" alt="" class="save-icon">
+                    </div>
+                    <div class="book-cover-section">
+                        <img src="../images/coverbook1.png" alt="" class="view-book">
+            
+                        <h2 class="view-book-title">'.$book_name.'</h2>
+              
+                    </div>
+                </div>
+                <div class="bottom-half">
+                    <button class="interest-list view-category">Romance</button>
+                    <div class="about-content">
+                    
+
                             <div class="img-name">
                             <img src="../images/Ellipse 18.png" alt="">
                             <div class="name-mail">
-                                <h2 class="name"></h2> 
+                                <h2 class="name">'.$book_author.'</h2> 
                                 <p class="publisher-email">adelekeyahaya05@gmail.com</p>
                             </div>
                         </div>
@@ -95,15 +98,20 @@ session_start();
                             <button><i class="fa-solid fa-star"></i></button>
                         </div>
                         <h2 style="margin-bottom: 10px;">About</h2>
-                        <p class="description">
-
-                        </p>
-                        <a href="" class="download-btn">Download </a>
+                        <p class="description">'.
+                             $about_book
+                        .'</p>.
+                        <a href="download.php?file=dummy.pdf" class="download-btn">Download </a>
                         <a href="" class="read-now">Read Now</a>
                 ';
                     
                 }
                 }
+
+        }
+
+
+       
 
 ?>
 
