@@ -1,4 +1,4 @@
-# bookies-web-app
+# bookis-web-app
 This is a web application that allows users
 to read their favorite books that has being uploaded or
 created 
