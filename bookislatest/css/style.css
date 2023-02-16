@@ -632,11 +632,12 @@
         align-items: center;
     }
 
-    .img-name{
+    /* .img-name{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 1rem;
-    }
+    } */
+
     
     .publisher-email{
         font-family: Gabriela;

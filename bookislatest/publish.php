@@ -82,7 +82,7 @@ echo $_SESSION['userEmail'];
             <div> <input type="text"></div>
             <br><br>
             <div><label for="">Content</label></div>
-            <textarea name="" id="chaper-one" cols="50" rows="20"></textarea>
+            <textarea name="" id="chaper-one" cols="30" rows="10"></textarea>
 
             <br><br><br>
             
@@ -92,7 +92,7 @@ echo $_SESSION['userEmail'];
             <div> <input type="text"></div>
             <br><br>
             <div><label for="">Content</label></div>
-            <textarea name="" id="chaper-one" cols="50" rows="20"></textarea>
+            <textarea name="" id="chaper-one" cols="30" rows="10"></textarea>
 
 
              

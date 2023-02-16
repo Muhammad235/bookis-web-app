@@ -51,7 +51,9 @@ if (isset($_SESSION['userEmail'])) {
           <img src="../images/logo.png" alt="" class="logo" />
         </nav>
         <div class="topp">
+        <form action="" method="post">
           <input type="text" placeholder="Search" class="search-category" />
+        </form>  
         </div>
 
         <div class="liner"></div>
@@ -147,6 +149,25 @@ if (isset($_SESSION['userEmail'])) {
         </div>
 
         <div class="books">
+
+  <script>
+      $(document).ready(function (){
+    $('#search_text').keyup(function (){
+      var search = $(this).val();
+      $.ajax ({
+        url: 'search.php',
+        method: 'post',
+        data:{query:search},
+        success: function (response){
+          $('#table-data').html(response);
+        }
+      });
+    });
+    
+  });
+  </script>
+  
+
 <?php
 
               $sql = "SELECT *
